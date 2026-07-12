@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Nova Movimentação</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+            <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+
+<body class="container">
+
+<h2 class="mt-4">Nova Movimentação</h2>
+
+<form th:action="@{/movimentacoes/salvar}"
+      th:object="${movimentacao}"
+      method="post">
+
+    <!-- EQUIPAMENTO -->
+    <div class="form-group">
+        <label>Equipamento</label>
+        <select class="form-control" th:field="*{equipamento.id}"required>
+            <option value="">Selecione</option>
+            <option th:each="equip : ${equipamentos}"
+                    th:value="${equip.id}"
+                    th:text="${equip.nome}">
+            </option>
+        </select>
+    </div>
+
+    <!-- TIPO -->
+    <div class="form-group">
+        <label>Tipo</label>
+        <select id="tipo"
+                class="form-control"
+                th:field="*{tipo}"
+                onchange="toggleFields()"required>
+            <option value="">Selecione</option>
+            <option th:each="t : ${tipos}"
+                    th:value="${t}"
+                    th:text="${t}">
+            </option>
+        </select>
+    </div>
+
+    <!-- QUANTIDADE -->
+    <div class="form-group">
+        <label>Quantidade</label>
+        <input type="number"
+               class="form-control"
+               th:field="*{quantidade}" required />
+        
+        <div class="form-group">
+            <label>Preço</label>
+            <input type="number"
+                   class="form-control"
+                   th:field="*{preco}"
+                   step="0,01"
+                   min="0"
+                   required/>
+        </div>
+    
+    <div>
+
+    <!-- CLIENTE (SAÍDA) -->
+    <div id="clienteField" class="form-group">
+        <label>Cliente (para saída)</label>
+        <select class="form-control" th:field="*{cliente.id}">
+            <option value="">Selecione</option>
+            <option th:each="c : ${clientes}"
+                    th:value="${c.id}"
+                    th:text="${c.nome}">
+            </option>
+        </select>
+    </div>
+
+    <!-- FORNECEDOR (ENTRADA) -->
+    <div id="fornecedorField" class="form-group">
+        <label>Fornecedor (para entrada)</label>
+        <select class="form-control" th:field="*{fornecedor.id}">
+            <option value="">Selecione</option>
+            <option th:each="f : ${fornecedores}"
+                    th:value="${f.id}"
+                    th:text="${f.nome}">
+            </option>
+        </select>
+    </div>
+
+    <button class="btn btn-success" type="submit">Salvar</button>
+
+</form>
+
+<br>
+<a class="btn btn-secondary" th:href="@{/movimentacoes/listar}">
+    Voltar
+</a>
+<!--
+<script th:inline="javascript">
+function toggleFields() {
+    var tipo = document.getElementById("tipo").value;
+
+    var cliente = document.getElementById("clienteField");
+    var fornecedor = document.getElementById("fornecedorField");
+
+    if (tipo === "SAIDA") {
+        cliente.style.display = "block";
+        fornecedor.style.display = "none";
+    } else if (tipo === "ENTRADA") {
+        cliente.style.display = "none";
+        fornecedor.style.display = "block";
+    } else {
+        cliente.style.display = "none";
+        fornecedor.style.display = "none";
+    }
+}
+
+window.onload = toggleFields;
+</script>
+-->
+ <script th:inline="javascript">
+        $(document).ready(function() {
+            function toggleFields() {
+                var tipo = $('#tipo').val();
+                var $cliente = $('#clienteField');
+                var $fornecedor = $('#fornecedorField');
+                var $clienteSelect = $cliente.find('select');
+                var $fornecedorSelect = $fornecedor.find('select');
+
+                $cliente.hide().find('select').prop('required', false);
+                $fornecedor.hide().find('select').prop('required', false);
+
+                if (tipo === 'SAIDA') {
+                    $cliente.show();
+                    $clienteSelect.prop('required', true);
+                } else if (tipo === 'ENTRADA') {
+                    $fornecedor.show();
+                    $fornecedorSelect.prop('required', true);
+                }
+            }
+            $('#tipo').change(toggleFields);
+            toggleFields(); // Estado inicial baseado no valor do objeto (edit)
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

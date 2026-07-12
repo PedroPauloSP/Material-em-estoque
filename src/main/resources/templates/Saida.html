@@ -1,0 +1,27 @@
+<!DOCTYPE html> 
+<html lang="en"xmlns:th="http://www.thymeleaf.org"> 
+        <head> 
+                <meta charset="utf-8"> 
+                <title>Cadastro de Entrada</title> 
+                <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> 
+
+    </head> 
+    <body> 
+                <h1>Entrada</h1> 
+                <form action="#" th:action="@{/cadastrarEntrada}" th:object="${entrada}" method="POST"> 
+                      <!--  <p>ID_Forecedor: <input type="text" th:combo box="*{fornecedorid}" /> </p> 
+            <!-- <p>ID_Forecedor: <input type="text" th:field="*{fornecedorid}" /> </p> 
+            <p>ID_Equipamenti: <input type="text" th:field="*{equipamentoid}" /> </p>
+             <p>ID_Categoria: <input type="text" th:field="*{categoriaid}" /> </p> -->
+            <!--   <p>Razão Social: <input type="text" th:field="*{razao_social}" /> </p> -->
+            <p>Equipamento:<input type="text" th:field="*{equipamento}"/></p>
+            <!-- <p>CNPJ: <input type="text" th:field="*{cnpj}" /> </p> -->
+            <p>Categoria:<input type ="text" th:field="*{categoria}"/></p>
+            <!--  <p>Telefone: <input type ="text" th:field="*{telefone}"/></p> comment -->
+            <p>Quantidade: <input type="text" th:field="*{quantidade}"/></p>
+            <!--  <p> Endereço: <input type="text" th:field="*{endereco}"/></p>
+                <p> Email: <input type="text" th:field="*{email}"/></p>-->
+                        <p><input type="submit" value="Cadastrar" /></p> 
+                    </form> 
+            </body> 
+</html> 

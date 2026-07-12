@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Atualizar Equipamento</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div class="container mt-5">
+            <h2>Atualizar Fornecedor</h2>
+            <form action="#" th:action="@{/cadastrarFornecedor}" th:object="${fornecedor}" method="POST">
+                <div class="form-group">
+
+                    <input type="hidden" th:field= "*{id}"/>
+                    <label for="nome">Razão Social:</label>
+                    <input type="text" th:field="*{nome}" class="form-control" /><!-- comment -->
+                    <label for="cnpj">CNPJ:</label>
+                    <input type="text" th:field="*{cnpj}" class="form-control" />
+                    <label for="endereco">Endereço:</label>
+                    <input type="text" th:field="*{telefone}" class="form-control" />
+                    <label for="email">E-MAIL:</label>
+                    <input type="text" th:field="*{endereco}" class="form-control" />
+                    <input type="text" th:field="*{email}" class="form-control" />
+                    <button type="submit" class="btn btn-primary">Atualizar</button>
+                    <a th:href="@{/listaFornecedor}" class="btn btn-secondary ml-2">Cancelar</a>
+            </form>
+
+        </div>
+    </body>
+</html>

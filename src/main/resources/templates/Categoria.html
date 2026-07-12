@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Cadastro de Categoria</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+<body class="container mt-5">
+    <h1>Cadastro de Categoria</h1>
+    <form th:action="@{/adicionar}" th:object="${categoria}" method="POST" class="form-group">
+        <div class="form-group">
+            <label for="nome">Nome:</label>
+          <input type="text" class="form-control" th:field="*{nome}" id="nome" required />
+        </div>
+     
+         
+        </div> 
+        <input type="submit" value="Cadastrar" class="btn btn-primary" />
+        <a class="btn btn-secondary"th:href="@{/}">Voltar</a>
+    </form>
+    <p id="resultado" th:if="${mensagem}" th:text="${mensagem}" class="alert alert-success"></p>
+</body>
+</html>

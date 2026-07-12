@@ -1,0 +1,64 @@
+<!DOCTYPE html> 
+<html lang="en"xmlns:th="http://www.thymeleaf.org"> 
+        <head> 
+                <meta charset="utf-8"> 
+                <title>Cadastro de Fornecedor</title> 
+                <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> 
+
+    </head> 
+    <body> 
+
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Cadastro de Fornecedor</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+
+<body class="container">
+
+<h1>Fornecedor</h1>
+
+<form th:action="@{/fornecedores/salvar}"
+      th:object="${fornecedor}"
+      method="post">
+
+    <input type="hidden" th:if = "*{id !=null}" th:field = "*{id}" />
+    <p>Razão Social:
+        <input class="form-control" type="text" th:field="*{nome}"required/>
+        <span class="text-danger" th:errors="*{nome}"></span>
+    </p>
+
+    <p>CNPJ:
+        <input class="form-control" type="text" th:field="*{cnpj}"required/>
+        <span class="text-danger" th:errors="*{cnpj}"></span>
+    </p>
+
+    <p>Telefone:
+        <input class="form-control" type="text" th:field="*{telefone}"required/>
+        <span class="text-danger" th:errors="*{telefone}"></span>
+    </p>
+
+    <p>Email:
+        <input class="form-control" type="text" th:field="*{email}"required/>
+        <span class="text-danger" th:errors="*{email}"></span>
+        
+    </p>
+
+    <p>Endereço:
+        <input class="form-control" type="text" th:field="*{endereco}"required/>
+        <span class="text-danger" th:errors="*{endereco}"></span>
+    </p>
+
+    <p>
+        <button class="btn btn-success" type="submit">Salvar</button>
+        <a class="btn btn-secondary" th:href="@{/fornecedores/listar}">Voltar</a>
+    </p>
+
+</form>
+<script>
+
+</script>
+</body>
+</html>

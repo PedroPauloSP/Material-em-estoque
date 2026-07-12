@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu Principal</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+
+<!-- 🔵 NAVBAR -->
+<nav class="navbar navbar-dark bg-dark">
+    <span class="navbar-brand mb-0 h1">
+        <i class="fas fa-boxes"></i> Sistema de Controle de Estoque
+    </span>
+</nav>
+
+<!-- 🔷 CONTEÚDO PRINCIPAL -->
+<div class="container mt-5">
+
+    <div class="row text-center">
+
+        <!-- CLIENTES -->
+        <div class="col-md-4 mb-4" >
+            <div class="card shadow h-100"style="border:4px solid #007bff;border-radius:12px; ">
+                <div class="card-body">
+                    <i class="fas fa-users fa-3x text-primary mb-3"></i>
+                    <h5 class="card-title">Clientes</h5>
+                    <a th:href="@{/listar}" class="btn btn-primary">
+                        Acessar
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- CATEGORIAS -->
+        <div class="col-md-4 mb-4">
+            <div class="card shadow h-100"style="border:4px solid #28a745;border-radius:12px">
+                <div class="card-body">
+                    <i class="fas fa-tags fa-3x text-success mb-3"></i>
+                    <h5 class="card-title">Categorias</h5>
+                    <a th:href="@{/}" class="btn btn-success">
+                        Acessar
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- EQUIPAMENTOS -->
+        <div class="col-md-4 mb-4">
+            <div class="card shadow h-100" style="border:4px solid #ffc107;border-radius:12px">
+                <div class="card-body">
+                    <i class="fas fa-laptop fa-3x text-warning mb-3"></i>
+                    <h5 class="card-title">Equipamentos</h5>
+                    <a th:href="@{/equipamentos}" class="btn btn-warning">
+                        Acessar
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- FORNECEDORES -->
+        <div class="col-md-6 mb-4">
+            <div class="card shadow h-100" style="border:4px solid #17a2b8;border-radius:12px">
+                <div class="card-body">
+                    <i class="fas fa-truck fa-3x text-info mb-3"></i>
+                    <h5 class="card-title">Fornecedores</h5>
+                    <a th:href="@{/fornecedores/listar}" class="btn btn-info">
+                        Acessar
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- MOVIMENTAÇÕES -->
+        <div class="col-md-6 mb-4">
+            <div class="card shadow h-100"style="border:4px solid#dc3545;border-radius:12px ">
+                <div class="card-body">
+                    <i class="fas fa-exchange-alt fa-3x text-danger mb-3"></i>
+                    <h5 class="card-title">Movimentações</h5>
+                    <a th:href="@{/movimentacoes/listar}" class="btn btn-danger">
+                        Acessar
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Lista de Equipamento</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> 
+
+    </head>
+    <body>
+
+        <div class="container my-2">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h1>Lista de Equipamento</h1>
+                <a th:href="@{/Menu}"class="btn btn-primary">Menu</a>
+                <a th:href="@{/criarEquipamento}"class="btn btn-primary" >
+                    <i class="fas fa-plus"></i>Novo Equipamento</a> 
+            </div>
+        </div>
+        <div class="table-responsive">
+              <table border="1" class="table table-striped table-responsive-md"> 
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Categoria</th>
+                        <th>Descrição</th>
+                      <!--  <th>Qtd</th>-->
+                        <th>Estoque</th>
+                       <!-- <th>Preço</th>-->
+                        <th>Ações</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="equip : ${listarEquipamento}">
+                        <td th:text="${equip.id}"></td>
+                        <td th:text="${equip.nome}"></td>        
+                        <td th:text="${equip.categoria !=null? equip.categoria.nome:'Sem categoria'}"></td>
+                        <td th:text="${equip.descricao}"></td>
+                        <!--<td th:text="${equip.quantidade}"></td>-->
+                        <td th:text="${equip.estoqueDisponivel ?:0}"> </td>
+                        <!-- <td th:text="'R$'+${#numbers.formatDecimal(equip.preco,1,2)}"></td>-->
+                        <!--<td th:text="${equip.preco}"></td> -->            
+
+                        <!-- <td th:text="${equip.fornecedor !=null? equip.fornecedor.nome:'Sem fornecedor'}"></td>-->
+
+
+                        <td>
+                            <div class="btn-group btn-group-sm" role="group">
+                                <a th:href="@{/atualizarEquipamento/{id}(id=${equip.id})}" 
+                                   class="btn btn-outline-primary" title="Editar">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <a th:href="@{/deletarEquipamento/{id}(id=${equip.id})}" 
+                                   class="btn btn-outline-danger" title="Deletar"
+                                   onclick="return confirm('Confirma exclusão?')">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                            </div>
+                        </td>
+
+                    </tr> 
+                </tbody>
+            </table>
+            <div th:if="${msgSucesso}" class="alert alert-success" th:text="${msgSucesso}"></div>
+            <div th:if="${msgErro}" class="alert alert-danger" th:text="${msgErro}"></div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+
+    </body>    
+</html>

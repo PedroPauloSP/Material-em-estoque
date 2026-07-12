@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Lista de Movimentações</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div class="container my-4">
+            <div class="d-flex justify-content-between align-items-center mb-4"> 
+                <h2>Movimentações</h2>
+                <div>
+                    <a th:href="@{/Menu}"class="btn btn-primary" >Menu
+                    </a>
+                    <a th:href="@{/movimentacoes/nova}" class="btn btn-primary">
+                        <i class="fas fa-plus"></i> Nova Movimentação 
+                    </a>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th style="width:5%">ID</th>
+                            <th style="width:18%" >Equipamento</th>
+                            <th style="width:15%">Categoria</th>
+                            <th style="width:8%">Tipo</th>
+                            <th style="width:8%">Estoque</th>
+                            <th style="width:10%">Preço Unit</th>
+                            <th style="width:10%">Total</th>
+                            <th style="width:18%">Cliente</th>
+                            <th style="width:15%">Fornecedor</th>
+                            <th style="width:12%">Data</th>
+                            <th style="width:8%">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="mov : ${movimentacoes}">
+                            <td th:text="${mov.id}"></td>
+                            <td th:text="${mov.equipamento?.nome ?: '-'}"></td>
+                            <td th:text="${mov.equipamento?.categoria?.nome ?: '-'}"></td>
+                            <td>
+                                <span th:text="${mov.tipo}"
+                                      th:classappend="${
+                                      mov.tipo == T(com.Api.MaterialEstocado.Data.TipoMovimentacao).ENTRADA
+                                      ? 'badge badge-success'
+                                      : 'badge badge-danger'
+                                      }">
+                                </span>
+                            </td>
+                            <td th:text="${mov.quantidade}"></td>
+                            <td th:text="${#numbers.formatDecimal(mov.preco,1,2,'POINT')}"></td>
+                            <td>
+                                R$ <span th:text="${#numbers.formatDecimal(mov.quantidade * mov.preco, 1, 2, 'COMMA')}"></span>
+                            </td>
+                            <td th:text="${mov.cliente?.nome ?: '-'}"></td>
+                            <td th:text="${mov.fornecedor?.nome ?: '-'}"></td>
+                            <td th:text="${#temporals.format(mov.dataMovimentacao, 'dd/MM/yy HH:mm')}"></td>
+                            <td>
+                                <div class="btn-group btn-group-sm" role="group">
+                                    <a th:href="@{/movimentacoes/editar/{id}(id=${mov.id})}" 
+                                       class="btn btn-outline-primary" title="Editar">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    <a th:href="@{/movimentacoes/deletar/{id}(id=${mov.id})}" 
+                                       class="btn btn-outline-danger" title="Deletar"
+                                       onclick="return confirm('Confirma exclusão?')">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    </body>
+</html>
