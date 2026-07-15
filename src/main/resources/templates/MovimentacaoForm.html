@@ -94,29 +94,6 @@
 <a class="btn btn-secondary" th:href="@{/movimentacoes/listar}">
     Voltar
 </a>
-<!--
-<script th:inline="javascript">
-function toggleFields() {
-    var tipo = document.getElementById("tipo").value;
-
-    var cliente = document.getElementById("clienteField");
-    var fornecedor = document.getElementById("fornecedorField");
-
-    if (tipo === "SAIDA") {
-        cliente.style.display = "block";
-        fornecedor.style.display = "none";
-    } else if (tipo === "ENTRADA") {
-        cliente.style.display = "none";
-        fornecedor.style.display = "block";
-    } else {
-        cliente.style.display = "none";
-        fornecedor.style.display = "none";
-    }
-}
-
-window.onload = toggleFields;
-</script>
--->
  <script th:inline="javascript">
         $(document).ready(function() {
             function toggleFields() {
