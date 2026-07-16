@@ -109,7 +109,7 @@ public String atualizarEquipamento(@PathVariable Integer id, Model model) {
     } catch (EmptyResultDataAccessException e) {
         redirectAttributes.addFlashAttribute("msgErro", "Equipamento não encontrado!");
    
-        // ID não existe, apenas redireciona
+       
     }
 
     return "redirect:/ListarEquip";
@@ -123,11 +123,11 @@ public String listar(Model model) {
     for(EquipamentoEntity equip : equipamentos) {
        int saldo = movimentacaoService.calcularSaldo(equip.getId());
        equip.setEstoqueDisponivel(saldo);
-       // estoques.put(equip.getId(),saldo);
+       
     
     }
     model.addAttribute("listarEquipamento", equipamentos);
-   // model.addAttribute("estoquesDisponiveis", estoques);
+  
     return "ListaEquipamento";
 }
 }

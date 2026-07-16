@@ -38,13 +38,8 @@
                         <td th:text="${equip.nome}"></td>        
                         <td th:text="${equip.categoria !=null? equip.categoria.nome:'Sem categoria'}"></td>
                         <td th:text="${equip.descricao}"></td>
-                        <!--<td th:text="${equip.quantidade}"></td>-->
+                       
                         <td th:text="${equip.estoqueDisponivel ?:0}"> </td>
-                        <!-- <td th:text="'R$'+${#numbers.formatDecimal(equip.preco,1,2)}"></td>-->
-                        <!--<td th:text="${equip.preco}"></td> -->            
-
-                        <!-- <td th:text="${equip.fornecedor !=null? equip.fornecedor.nome:'Sem fornecedor'}"></td>-->
-
 
                         <td>
                             <div class="btn-group btn-group-sm" role="group">

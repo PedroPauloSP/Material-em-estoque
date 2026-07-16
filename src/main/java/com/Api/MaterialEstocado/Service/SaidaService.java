@@ -40,8 +40,7 @@ public class SaidaService {
 
  return saidaRepository.findById(saidaId).orElse(null);
  
-// return funcionarioRepository.findById(funcId).orElseThrow(() -> new ResourceNotFoundException("Funcionário não encontrado " + funcId)); 
- 
+
      } 
   public List<SaidaEntity> listarTodasSaidas() { 
 return saidaRepository.findAll(); 

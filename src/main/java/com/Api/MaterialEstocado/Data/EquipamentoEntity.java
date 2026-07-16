@@ -16,7 +16,7 @@ public class EquipamentoEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    //private Integer id_equipamento;
+    
     private Integer id;
 
     @Size(min=2, message = "Informe ao menos 2 caracteres para o campo nome")
