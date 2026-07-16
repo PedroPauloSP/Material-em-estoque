@@ -34,23 +34,7 @@
         <label>Descrição:</label>
         <input type="text" th:field="*{descricao}" class="form-control"required/>
     </div>
-<!--
-    <div class="form-group">
-        <label>Quantidade:</label>
-        <input type="number" 
-               th:value"${quantidade}" 
-               class="form-control" 
-               readonly>     
-    </div>
-
-    <div class="form-group">
-        <label>Preço:</label>
-        <input type="number" step="0.01" th:field="*{preco}" class="form-control" required/>
-    </div>
--->
-   
-   
-
+    
     <button type="submit" class="btn btn-primary">Cadastrar</button>
     <a class="btn btn-secondary" th:href="@{/equipamentos}">Voltar</a>
 </form>

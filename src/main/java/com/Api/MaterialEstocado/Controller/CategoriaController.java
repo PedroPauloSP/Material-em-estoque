@@ -77,14 +77,5 @@ if(cat.getId()==null){
         categoriaService.deletarCategoria(id);
         return "redirect:/";
     }
-
-
-
-
-
-
-
-
-
 }
 

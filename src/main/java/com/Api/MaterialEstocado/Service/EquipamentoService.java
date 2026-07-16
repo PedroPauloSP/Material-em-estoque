@@ -100,7 +100,7 @@ public class EquipamentoService {
 
 
 
-//equip.setSaldo(calcularSaldo(equip.getId()));
+
 
 
 

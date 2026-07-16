@@ -17,7 +17,7 @@ public class FornecedorService {
     
    
       public FornecedorEntity criar(FornecedorEntity forne){
-    //if (forne.getId_fornecedor() != null){
+   
         if (forne == null){
         throw new IllegalArgumentException("Novo fornecedor não pode ter ID nulo");
     }

@@ -13,16 +13,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class EntradaService {
 
-   /* @Autowired
-    private EntradaRepository entradaRepository;
-
-
-    public EntradaEntity cadastrarEntrada(EntradaEntity entrada){
-        return entradaRepository.save(entrada);
-        
-        
-    }
-*/
     
     @Autowired
 private EntradaRepository entradaRepository;
@@ -62,7 +52,7 @@ public EntradaEntity cadastrarEntrada(EntradaEntity entrada){
         entrada.setEquipamento(request.getEquipamento());
         entrada.setCategoria(request.getCategoria());
         entrada.setQuantidade(request.getQuantidade());
-       // entrada.setData(request.getData());
+       
         if(request.getData()!= null){
         entrada.setData(request.getData());
       }
@@ -104,55 +94,4 @@ public EntradaEntity cadastrarEntrada(EntradaEntity entrada){
 
 
 
-/*
-@Service
-public class EntradaService {
-     @Autowired
- EntradaRepository entradaRepository;
- 
- public EntradaEntity cadastrarEntrada(EntradaEntity entra){
-     entra.setId(null);
-     
-     
-     entradaRepository.save(entra);
-     return entra;
- }
-    
-    public EntradaEntity atualizarEntrada(Integer entraId, EntradaEntity entradaRequest) {
 
-        EntradaEntity entra = getentradaId (entraId);
-        
-        entra.setEquipamento(entradaRequest.getEquipamento());
-        entra.setCategoria(entradaRequest.getCategoria());
-        entra.setQuantidade(entradaRequest.getQuantidade());
-        entra.setData(entradaRequest.getData());
-        entra.setCnpj(entradaRequest.getCnpj());
-       // entra.setEndereco(entradaRequest.getEndereco());
-       // entra.setEmail(entradaRequest.getEmail());*/
-
-       /*
-
-        entradaRepository.save(entra);
-
-        return entra;
-
-    }
-     public EntradaEntity getentradaId(Integer entraId) { 
-
- return entradaRepository.findById(entraId).orElseThrow(() -> new RuntimeException("Entrada não encontrada: " + entraId));
- 
-// return funcionarioRepository.findById(funcId).orElseThrow(() -> new ResourceNotFoundException("Funcionário não encontrado " + funcId)); 
- 
-     } 
-  public List<EntradaEntity> listarTodasEtradas() { 
-return entradaRepository.findAll(); 
-
-} 
-
-public void deletarEntrada(Integer entraId) { 
-EntradaEntity entra = getentradaId(entraId); 
-
-entradaRepository.deleteById(entra.getId()); 
-
-} 
-}*/

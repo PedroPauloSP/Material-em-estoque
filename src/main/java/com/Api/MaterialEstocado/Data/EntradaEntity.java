@@ -23,7 +23,7 @@ public class EntradaEntity {
     @JoinColumn(name="fornecedor_id", nullable = false)
     private FornecedorEntity fornecedor;
     
-    //@NotBlank(message = "CNPJ obrigatório")
+    
     @Size(min = 14, max = 18, message = "CNPJ invalido")
     private String cnpj;
     
