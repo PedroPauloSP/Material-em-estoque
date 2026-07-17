@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.Api.MaterialEstocado.Data;
 
 import jakarta.persistence.*;
@@ -28,7 +25,7 @@ public class FornecedorEntity {
 
     @Size(min = 2, message = "Informe ao menos 2 caracteres para o campo nome")
     private String nome;
-   // private String razao_social;
+  
 
    @CNPJ(message = "CNPJ inválido(00.000.000/0001-00)")
    @NotBlank(message = "CNPJ é obrigatório")

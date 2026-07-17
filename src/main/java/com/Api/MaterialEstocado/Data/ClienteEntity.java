@@ -24,7 +24,7 @@ public class ClienteEntity {
     @NotBlank(message = "Nome é obrigatório")
     @Size(min = 2, max = 100, message = "Nome deve ter entre 2 e 100 caracteres)")
     private String nome;
-    //private String razao_social;
+   
 
     @CNPJ(message = "CNPJ inválido(00.000.000/0001-00)")
     @NotBlank(message = "CNPJ é obrigatório")
