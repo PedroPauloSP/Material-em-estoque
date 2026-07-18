@@ -33,4 +33,3 @@ Maven
 Git e GitHub
 Jira (Planejamento, testes e acompanhamento de bugs)
 
-Esse texto é adequado para incluir no README.md, no relatório do Projeto Integrador e na documentação de entrega.
