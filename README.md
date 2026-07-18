@@ -6,9 +6,9 @@ Tecnologia: Java Web Spring MVC
 
 Descricao:
 
-O Sistema de Controle de Estoque de Material é uma aplicação web desenvolvida em Java utilizando Spring Boot e Spring MVC, com o objetivo de gerenciar o estoque de materiais de forma organizada e eficiente. O sistema permite o cadastro, consulta, atualização e exclusão de informações relacionadas ao estoque, além de controlar as movimentações de entrada e saída de materiais.
+O Sistema de Controle de Estoque de Material é uma aplicação web desenvolvida em Java utilizando Spring Boot e Spring MVC, O sistema permite o cadastro, consulta, atualização e exclusão de informações relacionadas ao estoque, além de controlar as movimentações de entrada e saída de materiais.
 
-A aplicação utiliza o padrão de arquitetura MVC (Model-View-Controller), persistência de dados com Spring Data JPA e MySQL, interface web desenvolvida com Thymeleaf e Bootstrap, além de versionamento do código-fonte utilizando Git e GitHub.
+A aplicação utiliza o padrão de arquitetura MVC, persistência de dados com Spring Data JPA e MySQL, interface web desenvolvida com Thymeleaf e Bootstrap, além de versionamento do código-fonte utilizando Git e GitHub.
 
 Funcionalidades
 Autenticação de usuários (Login).
@@ -31,5 +31,5 @@ Bootstrap
 MySQL
 Maven
 Git e GitHub
-Jira (Planejamento, testes e acompanhamento de bugs)
+Jira 
 
